@@ -13,10 +13,7 @@ install:
   - mysql -e 'CREATE DATABASE bluz;'
   # composer require
   - cd skeleton
-  # Database dump
-  - mysql -uroot bluz < structure.ddl
-  - mysql -uroot bluz < dump.sql
-  - ENV=dev composer require bluzphp/module-options
+  - ENV=default composer require bluzphp/module-options
   # Newman
   - npm install -g newman@1
 script:
