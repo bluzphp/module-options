@@ -30,7 +30,7 @@ class Table extends \Bluz\Db\Table
      *
      * @var string
      */
-    protected $table = 'options';
+    protected $name = 'options';
 
     /**
      * Primary key(s)
