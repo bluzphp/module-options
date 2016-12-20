@@ -3,16 +3,15 @@ php:
   - 7.0
   - 7.1
 install:
-  # ImageMagick
-  #- printf "\n" | pecl install imagick
   # Composer
   - rm -rf ./*
   - composer self-update
   - composer create-project bluzphp/skeleton --stability=dev
   # Database
   - mysql -e 'CREATE DATABASE bluz;'
-  # Require current module
   - cd skeleton
+  - vendor/bin/phinx migrate -e default
+  # Require current module
   - composer require bluzphp/module-options:dev-master
   # Newman
   - npm install -g newman@1
