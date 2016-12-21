@@ -37,7 +37,7 @@ class CrudTest extends ControllerTestCase
     {
         $this->setupSuperUserIdentity();
 
-        $this->dispatch('/options/crud/', null, Request::METHOD_POST);
+        $this->dispatch('/options/crud/', [], Request::METHOD_POST);
         $this->assertOk();
     }
 
@@ -48,7 +48,7 @@ class CrudTest extends ControllerTestCase
     {
         $this->setupSuperUserIdentity();
 
-        $this->dispatch('/options/crud/', null, Request::METHOD_PUT);
+        $this->dispatch('/options/crud/', [], Request::METHOD_PUT);
         $this->assertResponseCode(404);
     }
 
@@ -59,7 +59,7 @@ class CrudTest extends ControllerTestCase
     {
         $this->setupSuperUserIdentity();
 
-        $this->dispatch('/options/crud/', null, Request::METHOD_DELETE);
+        $this->dispatch('/options/crud/', [], Request::METHOD_DELETE);
         $this->assertResponseCode(404);
     }
 }
