@@ -10,7 +10,8 @@
 namespace Application\Tests\Options;
 
 use Application\Tests\ControllerTestCase;
-use Bluz\Proxy\Request;
+use Bluz\Http\RequestMethod;
+use Bluz\Http\StatusCode;
 
 /**
  * @package  Application\Tests\Options
@@ -24,10 +25,11 @@ class CrudTest extends ControllerTestCase
      */
     public function testCrudPage()
     {
-        $this->setupSuperUserIdentity();
+        self::setupSuperUserIdentity();
 
         $this->dispatch('/options/crud/');
-        $this->assertOk();
+
+        self::assertOk();
     }
 
     /**
@@ -35,10 +37,11 @@ class CrudTest extends ControllerTestCase
      */
     public function testCrudPost()
     {
-        $this->setupSuperUserIdentity();
+        self::setupSuperUserIdentity();
 
-        $this->dispatch('/options/crud/', [], Request::METHOD_POST);
-        $this->assertOk();
+        $this->dispatch('/options/crud/', [], RequestMethod::POST);
+
+        self::assertOk();
     }
 
     /**
@@ -46,10 +49,11 @@ class CrudTest extends ControllerTestCase
      */
     public function testCrudPut()
     {
-        $this->setupSuperUserIdentity();
+        self::setupSuperUserIdentity();
 
-        $this->dispatch('/options/crud/', [], Request::METHOD_PUT);
-        $this->assertResponseCode(404);
+        $this->dispatch('/options/crud/', [], RequestMethod::PUT);
+
+        self::assertResponseCode(StatusCode::NOT_FOUND);
     }
 
     /**
@@ -57,9 +61,10 @@ class CrudTest extends ControllerTestCase
      */
     public function testCrudDelete()
     {
-        $this->setupSuperUserIdentity();
+        self::setupSuperUserIdentity();
 
-        $this->dispatch('/options/crud/', [], Request::METHOD_DELETE);
-        $this->assertResponseCode(404);
+        $this->dispatch('/options/crud/', [], RequestMethod::DELETE);
+
+        self::assertResponseCode(StatusCode::NOT_FOUND);
     }
 }
