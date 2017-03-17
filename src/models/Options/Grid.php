@@ -29,14 +29,15 @@ class Grid extends \Bluz\Grid\Grid
      */
     public function init()
     {
-         // Array
-         $adapter = new \Bluz\Grid\Source\SqlSource();
-         $adapter->setSource('SELECT * FROM options');
+        // Array
+        $adapter = new \Bluz\Grid\Source\SqlSource();
+        $adapter->setSource('SELECT * FROM options');
 
-         $this->setAdapter($adapter);
-         $this->setDefaultLimit(25);
-         $this->setAllowOrders(['id', 'key', 'namespace', 'value', 'created', 'deleted']);
+        $this->setAdapter($adapter);
+        $this->setDefaultLimit(25);
+        $this->setAllowOrders(['id', 'key', 'namespace', 'value', 'created', 'deleted']);
+        $this->processSource();
 
-         return $this;
+        return $this;
     }
 }
