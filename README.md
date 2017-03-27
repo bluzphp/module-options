@@ -40,3 +40,4 @@ To remove the module, run the command:
     $ composer remove bluzphp/module-options
 
     
+
