@@ -9,7 +9,9 @@
   "extra": {
     "bluz": {
       "module_name": "options",
-      "required_models": "options"
+      "models": [
+        "options"
+      ]
     }
   }
 }
