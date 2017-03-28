@@ -14,6 +14,9 @@ install:
   - composer require bluzphp/module-options:dev-master
   # Migrations
   - vendor/bin/phinx migrate -e default
+before_script:
+  # Codeception
+  - wget http://codeception.com/codecept.phar
 script:
   - mkdir .reports
   # Code style
