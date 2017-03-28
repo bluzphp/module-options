@@ -5,13 +5,5 @@
   "description": "bluz options module",
   "require": {
     "bluzphp/composer-plugin": "dev-master"
-  },
-  "extra": {
-    "bluz": {
-      "module_name": "options",
-      "models": [
-        "options"
-      ]
-    }
   }
 }
