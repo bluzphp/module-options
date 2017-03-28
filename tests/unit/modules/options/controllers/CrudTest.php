@@ -14,7 +14,7 @@ use Bluz\Http\RequestMethod;
 use Bluz\Http\StatusCode;
 
 /**
- * @group    options
+ * @group    module-options
  * @group    crud
  *
  * @package  Application\Tests\Options

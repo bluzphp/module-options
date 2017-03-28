@@ -12,7 +12,7 @@ namespace Application\Tests\Options;
 use Application\Tests\ControllerTestCase;
 
 /**
- * @group    options
+ * @group    module-options
  * @group    grid
  *
  * @package  Application\Tests\Options

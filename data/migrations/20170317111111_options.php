@@ -27,8 +27,8 @@ class Options extends AbstractMigration
      */
     public function change()
     {
-        $pages = $this->table('options', ['id' => false, 'primary_key' => ['namespace', 'key']]);
-        $pages
+        $table = $this->table('options', ['id' => false, 'primary_key' => ['namespace', 'key']]);
+        $table
             ->addColumn('namespace', 'string', ['length' => 255, 'default' => 'default'])
             ->addColumn('key', 'string', ['length' => 255])
             ->addColumn('value', 'text')
