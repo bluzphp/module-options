@@ -12,6 +12,9 @@ namespace Application\Tests\Options;
 use Application\Tests\ControllerTestCase;
 
 /**
+ * @group    options
+ * @group    grid
+ *
  * @package  Application\Tests\Options
  * @author   Anton Shevchuk
  * @created  15.05.14 12:35
