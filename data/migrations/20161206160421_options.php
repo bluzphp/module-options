@@ -2,7 +2,7 @@
 
 use Phinx\Migration\AbstractMigration;
 
-class CreateOptionsTable extends AbstractMigration
+class Options extends AbstractMigration
 {
     /**
      * Change Method.
@@ -31,7 +31,8 @@ class CreateOptionsTable extends AbstractMigration
         $pages
             ->addColumn('namespace', 'string', ['length' => 255, 'default' => 'default'])
             ->addColumn('key', 'string', ['length' => 255])
-            ->addColumn('description', 'text')
+            ->addColumn('value', 'text')
+            ->addColumn('description', 'text', ['null' => true])
             ->addTimestamps('created', 'updated')
             ->create();
 

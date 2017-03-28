@@ -4,6 +4,6 @@
   "license": "MIT",
   "description": "bluz options module",
   "require": {
-    "bluzphp/composer-plugin": "dev-master"
+    "bluzphp/composer-plugin": "~2.0"
   }
 }
