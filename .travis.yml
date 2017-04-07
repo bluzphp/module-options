@@ -4,7 +4,6 @@ php:
   - 7.1
 install:
   # Composer
-  - rm -rf ./*
   - composer self-update
   - composer create-project bluzphp/skeleton --stability=dev
   # Database
