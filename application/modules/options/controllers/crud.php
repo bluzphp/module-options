@@ -22,9 +22,7 @@ return function () {
     /**
      * @var Controller $this
      */
-    $crud = new Crud();
-
-    $crud->setCrud(Options\Crud::getInstance());
+    $crud = new Crud(Options\Crud::getInstance());
 
     $crud->get('system', 'crud/get');
     $crud->post('options', 'crud/post');
