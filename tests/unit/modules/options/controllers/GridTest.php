@@ -28,7 +28,7 @@ class GridTest extends ControllerTestCase
      */
     public function testControllerPage()
     {
-        $this->setupSuperUserIdentity();
+        self::setupSuperUserIdentity();
 
         $this->dispatch('/options/grid/');
         self::assertOk();
