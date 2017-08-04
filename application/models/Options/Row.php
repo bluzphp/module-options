@@ -4,13 +4,11 @@
  * @link https://github.com/bluzphp/skeleton
  */
 
-/**
- * @namespace
- */
+declare(strict_types=1);
+
 namespace Application\Options;
 
 use Bluz\Validator\Traits\Validator;
-use Bluz\Validator\Validator as v;
 
 /**
  * Options Row
@@ -34,7 +32,9 @@ class Row extends \Bluz\Db\Row
      */
     protected function afterRead()
     {
-        $this->value = unserialize($this->value);
+        if ($this->value) {
+            $this->value = unserialize($this->value);
+        }
     }
 
     /**
@@ -44,14 +44,12 @@ class Row extends \Bluz\Db\Row
     {
         $this->value = serialize($this->value);
 
-        $this->addValidator(
-            'namespace',
-            v::required()->slug()
-        );
-        $this->addValidator(
-            'key',
-            v::required()->slug()
-        );
+        $this->addValidator('namespace')
+            ->required()
+            ->slug();
+        $this->addValidator('key')
+            ->required()
+            ->slug();
     }
 
     /**
@@ -60,12 +58,13 @@ class Row extends \Bluz\Db\Row
     protected function beforeInsert()
     {
         // unique validator
-        $this->addValidator(
-            'key',
-            v::callback(function () {
-                return !$this->getTable()->findRowWhere(['key' => $this->key, 'namespace' => $this->namespace]);
-            })->setError('Key name "{{input}}" already exists')
-        );
+        $this->addValidator('key')
+            ->callback(
+                function () {
+                    return !$this->getTable()->findRowWhere(['key' => $this->key, 'namespace' => $this->namespace]);
+                },
+                'Key name is already exists'
+            );
     }
 
     /**

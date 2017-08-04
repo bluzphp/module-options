@@ -4,9 +4,8 @@
  * @link https://github.com/bluzphp/skeleton
  */
 
-/**
- * @namespace
- */
+declare(strict_types=1);
+
 namespace Application\Options;
 
 /**
@@ -73,7 +72,6 @@ class Table extends \Bluz\Db\Table
         if (!$row) {
             $row = self::create();
             $row->key = $key;
-            $row->value = $value;
             $row->namespace = $namespace;
         }
         $row->value = $value;

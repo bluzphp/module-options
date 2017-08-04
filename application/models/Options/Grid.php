@@ -4,9 +4,8 @@
  * @link https://github.com/bluzphp/skeleton
  */
 
-/**
- * @namespace
- */
+declare(strict_types=1);
+
 namespace Application\Options;
 
 /**
@@ -36,7 +35,6 @@ class Grid extends \Bluz\Grid\Grid
         $this->setAdapter($adapter);
         $this->setDefaultLimit(25);
         $this->setAllowOrders(['id', 'key', 'namespace', 'value', 'created', 'deleted']);
-        $this->processSource();
 
         return $this;
     }
