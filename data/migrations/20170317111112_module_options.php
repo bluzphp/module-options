@@ -29,11 +29,16 @@ class ModuleOptions extends AbstractMigration
     {
         $table = $this->table('options', ['id' => false, 'primary_key' => ['namespace', 'key']]);
         $table
+            ->addColumn('userId', 'integer')
             ->addColumn('namespace', 'string', ['length' => 255, 'default' => 'default'])
             ->addColumn('key', 'string', ['length' => 255])
             ->addColumn('value', 'text')
             ->addColumn('description', 'text', ['null' => true])
             ->addTimestamps('created', 'updated')
+            ->addForeignKey('userId', 'users', 'id', [
+                'delete' => 'CASCADE',
+                'update' => 'CASCADE'
+            ])
             ->create();
 
         $data = [

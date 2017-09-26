@@ -37,12 +37,12 @@ if (!$grid) return;
             <?php foreach($grid->getData() as $row) : ?>
             <tr>
                 <td><span class="label label-info"><?=$row['namespace']?></span></td>
-                <td><a href="#" class="bluz-tooltip" data-toggle="tooltip" title="<?=esc($row['description'])?>"><?=esc($row['key'])?></a></td>
+                <td><span class="bluz-tooltip" data-toggle="tooltip" title="<?=esc($row['description'])?>"><?=esc($row['key'])?></span></td>
                 <td>
                     <?php
-                    $value = unserialize($row['value']);
+                    $value = unserialize($row['value'], ['allow_classes' => false]);
                     if (is_array($value)) {
-                        echo __('Array (length=%d)', sizeof($value));
+                        echo __('Array (length=%d)', count($value));
                     } elseif (is_object($value)) {
                         echo __('Object of `%s` class', get_class($value));
                     } else {

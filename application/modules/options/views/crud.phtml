@@ -11,16 +11,24 @@
         <h4 class="modal-title"><?=__('Options')?></h4>
     </div>
     <div class="modal-body">
+        <?php if ($method === 'PUT') :?>
+        <div class="form-group">
+            <label class="control-label col-lg-2" for="author"><?=__('Author')?></label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="author" name="author" value="<?=\Application\Users\Table::findRow($row->userId)->login;?>" disabled />
+            </div>
+        </div>
+        <?php endif; ?>
         <div class="form-group">
             <label class="control-label col-lg-2" for="namespace"><?=__('Namespace')?></label>
             <div class="col-lg-10">
-                <input type="text" class="form-control" id="namespace" name="namespace" value="<?=esc($row->namespace)?:'default'?>" <?=($method != 'POST')?'disabled':''?> required />
+                <input type="text" class="form-control" id="namespace" name="namespace" value="<?=esc($row->namespace)?:'default'?>" <?=($method !== 'POST')?'disabled':''?> required />
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-lg-2" for="key"><?=__('Key name')?></label>
             <div class="col-lg-10">
-                <input type="text" class="form-control" id="key" name="key" value="<?=esc($row->key)?>" <?=($method!='POST')?'disabled':''?> />
+                <input type="text" class="form-control" id="key" name="key" value="<?=esc($row->key)?>" <?=($method !== 'POST')?'disabled':''?> />
             </div>
         </div>
         <div class="form-group">
@@ -28,7 +36,7 @@
             <div class="col-lg-10">
                 <?php $value = $row->value; ?>
                 <?php if (is_array($value)) : ?>
-                <input type="text" class="form-control" id="value" name="value" disabled value="<?=__('Array (length=%d)', sizeof($value));?>"/>
+                <input type="text" class="form-control" id="value" name="value" disabled value="<?=__('Array (length=%d)', count($value));?>"/>
                 <?php elseif (is_object($value)): ?>
                 <input type="text" class="form-control" id="value" name="value" disabled value="<?=__('Object of `%s` class', get_class($value));?>"/>
                 <?php else: ?>

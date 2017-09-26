@@ -28,7 +28,7 @@ return function ($crud, $primary, $data) {
     try {
         $crud->createOne($data);
 
-        Messages::addSuccess('Record was created');
+        Messages::addSuccess('The record was successfully created');
         
         return [
             'row'    => $data,
