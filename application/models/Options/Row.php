@@ -35,7 +35,6 @@ use Application\Users;
  *     example="2017-03-17 19:06:28")
  * @SWG\Property(property="updated", type="string", format="date-time", description="Last updated date",
  *     example="2017-03-17 19:06:28")
-
  */
 class Row extends \Bluz\Db\Row
 {
