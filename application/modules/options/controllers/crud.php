@@ -25,8 +25,8 @@ return function () {
     $crud = new Crud(Options\Crud::getInstance());
 
     $crud->get('system', 'crud/get');
-    $crud->post('options', 'crud/post');
-    $crud->put('system', 'crud/put');
+    $crud->post('options', 'crud/post')->fields(['namespace', 'key', 'value', 'description']);
+    $crud->put('system', 'crud/put')->fields(['value', 'description']);
     $crud->delete('system', 'crud/delete');
     
     return $crud->run();
