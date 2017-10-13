@@ -40,17 +40,5 @@ class ModuleOptions extends AbstractMigration
                 'update' => 'CASCADE'
             ])
             ->create();
-
-        $data = [
-            [
-                'roleId' => 2,
-                'module' => 'options',
-                'privilege' => 'Management'
-            ]
-        ];
-
-        $privileges = $this->table('acl_privileges');
-        $privileges->insert($data)
-            ->save();
     }
 }
