@@ -1,6 +1,6 @@
 <?php /** @var \Application\Options\Row $row */ ?>
 <?php $uid = uniqid('form_', false); ?>
-<form id="<?=$uid?>" action="<?=$this->url('options', 'crud')?>" class="form-horizontal ajax" method="POST">
+<form id="<?=$uid?>" action="<?=$this->url('options', 'crud')?>" class="form-horizontal" data-ajax method="POST">
     <input type="hidden" name="_method" value="<?=$method?>"/>
     <?php if ($method !== 'POST') : ?>
         <input type="hidden" name="namespace" value="<?=esc($row->namespace)?:'default'?>"/>
