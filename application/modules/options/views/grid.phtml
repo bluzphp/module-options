@@ -10,7 +10,8 @@ if (!$grid) return;
         require(['bluz.grid']);
     </script>
     <nav class="navbar navbar-light bg-light">
-        <a href="<?=$this->url('options', 'crud')?>" class="btn btn-primary navbar-btn dialog" data-ajax-method="get"><?=__('Create')?></a>
+        <a href="<?=$this->url('options', 'crud')?>" class="btn btn-primary navbar-btn"
+           data-ajax-dialog data-ajax-method="get"><?=__('Create')?></a>
     </nav>
     <hr/>
     <?=$this->partial('grid/total.phtml', ['grid'=>$grid]) ?>
@@ -47,11 +48,11 @@ if (!$grid) return;
                 <td><?=$row['updated']?></td>
                 <td class="controls">
                     <a href="<?=$this->url('options', 'crud', ['key' => $row['key'], 'namespace' => $row['namespace']]);?>"
-                       class="btn btn-xs btn-primary dialog" data-ajax-method="get">
+                       class="btn btn-primary" data-ajax-dialog data-ajax-method="get">
                         <i class="fa fa-pencil"></i>
                     </a>
                     <a href="<?=$this->url('options', 'crud', ['key' => $row['key'], 'namespace' => $row['namespace']]);?>"
-                       class="confirm btn btn-xs btn-danger ajax" data-ajax-method="delete">
+                       class="btn btn-danger" data-confirm data-ajax data-ajax-method="delete">
                         <i class="fa fa-trash-o"></i>
                     </a>
                 </td>
