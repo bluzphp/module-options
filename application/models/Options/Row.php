@@ -43,7 +43,7 @@ class Row extends \Bluz\Db\Row
     /**
      * {@inheritdoc}
      */
-    protected function afterRead()
+    protected function afterRead() : void
     {
         if ($this->value) {
             $this->value = unserialize($this->value, ['allowed_classes' => false]);
@@ -53,7 +53,7 @@ class Row extends \Bluz\Db\Row
     /**
      * {@inheritdoc}
      */
-    protected function beforeSave()
+    protected function beforeSave() : void
     {
         $this->value = serialize($this->value);
 
@@ -68,7 +68,7 @@ class Row extends \Bluz\Db\Row
     /**
      * {@inheritdoc}
      */
-    protected function beforeInsert()
+    protected function beforeInsert() : void
     {
         // unique validator
         $this->addValidator('key')
@@ -81,7 +81,7 @@ class Row extends \Bluz\Db\Row
 
         /* @var \Application\Users\Row $user */
         if ($user = Auth::getIdentity()) {
-            $this->userId = $user->id;
+            $this->userId = $user->getId();
         } else {
             $this->userId = Users\Table::SYSTEM_USER;
         }
@@ -90,7 +90,7 @@ class Row extends \Bluz\Db\Row
     /**
      * {@inheritdoc}
      */
-    protected function beforeUpdate()
+    protected function beforeUpdate() : void
     {
         $this->updated = gmdate('Y-m-d H:i:s');
     }

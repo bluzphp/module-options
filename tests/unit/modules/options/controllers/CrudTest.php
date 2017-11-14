@@ -24,50 +24,55 @@ use Bluz\Http\StatusCode;
 class CrudTest extends ControllerTestCase
 {
     /**
-     * @todo test functionality
+     * setUp
+     *
+     * @return void
      */
-    public function testCrudPage()
+    public function setUp()
     {
+        parent::setUp();
+        self::getApp()->useLayout(false);
         self::setupSuperUserIdentity();
+    }
 
+    public function testGetCrudForm()
+    {
         $this->dispatch('/options/crud/');
 
         self::assertOk();
+        self::assertQueryCount('form[method="POST"]', 1);
     }
 
-    /**
-     * @todo test functionality
-     */
-    public function testCrudPost()
+    public function testSendCrudFrom()
     {
-        self::setupSuperUserIdentity();
-
-        $this->dispatch('/options/crud/', [], RequestMethod::POST);
+        $this->dispatch(
+            '/options/crud/',
+            ['namespace' => 'default', 'key' => 'test', 'value' => 'create'],
+            RequestMethod::POST
+        );
 
         self::assertOk();
     }
 
-    /**
-     * @todo test functionality
-     */
-    public function testCrudPut()
+    public function testUpdateCrudForm()
     {
-        self::setupSuperUserIdentity();
+        $this->dispatch(
+            '/options/crud/',
+            ['namespace' => 'default', 'key' => 'test', 'value' => 'update'],
+            RequestMethod::PUT
+        );
 
-        $this->dispatch('/options/crud/', [], RequestMethod::PUT);
-
-        self::assertResponseCode(StatusCode::NOT_FOUND);
+        self::assertOk();
     }
 
-    /**
-     * @todo test functionality
-     */
-    public function testCrudDelete()
+    public function testDeleteCrud()
     {
-        self::setupSuperUserIdentity();
+        $this->dispatch(
+            '/options/crud/',
+            ['namespace' => 'default', 'key' => 'test'],
+            RequestMethod::DELETE
+        );
 
-        $this->dispatch('/options/crud/', [], RequestMethod::DELETE);
-
-        self::assertResponseCode(StatusCode::NOT_FOUND);
+        self::assertOk();
     }
 }
