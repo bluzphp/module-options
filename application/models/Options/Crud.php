@@ -10,9 +10,8 @@ namespace Application\Options;
 
 /**
  * Class Crud of Options
- * @package Application\Options
  *
- * @method Table getTable()
+ * @package Application\Options
  */
 class Crud extends \Bluz\Crud\Table
 {

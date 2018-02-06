@@ -2,65 +2,67 @@
 /**
  * @var \Bluz\Grid\Grid $grid
  */
-if (!$grid) return;
+if (!$grid) {
+    return;
+}
 ?>
-<div class="clearfix" data-spy="grid" data-grid="<?=$grid->getUid()?>">
-    <script>
-        // use data-spy="grid" for use AJAX for reload grid
-        require(['bluz.grid']);
-    </script>
-    <nav class="navbar navbar-light bg-light">
-        <a href="<?=$this->url('options', 'crud')?>" class="btn btn-primary navbar-btn"
-           data-ajax-dialog data-ajax-method="get"><?=__('Create')?></a>
-    </nav>
-    <hr/>
-    <?=$this->partial('grid/total.phtml', ['grid'=>$grid]) ?>
-    <?=$this->partial('grid/limit.phtml', ['grid'=>$grid]) ?>
-    <table class="table table-striped table-hover">
-        <thead>
-            <tr>
-                <th width="80px"><a href="<?=$grid->order('namespace')?>"><?=__('Space')?></a></th>
-                <th width="160px"><a href="<?=$grid->order('key')?>"><?=__('Key')?></a></th>
-                <th><a href="<?=$grid->order('value')?>"><?=__('Value')?></a></th>
-                <th width="180px"><a href="<?=$grid->order('created')?>"><?=__('Created')?></a></th>
-                <th width="180px"><a href="<?=$grid->order('updated')?>"><?=__('Updated')?></a></th>
-                <th width="120px"></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($grid->getData() as $row) : ?>
-            <tr>
-                <td><span class="badge badge-info"><?=$row['namespace']?></span></td>
-                <td><span title="<?=esc($row['description'])?>"><?=esc($row['key'])?></span></td>
-                <td>
-                    <?php
-                    $value = unserialize($row['value'], ['allow_classes' => false]);
-                    if (is_array($value)) {
-                        echo __('Array (length=%d)', count($value));
-                    } elseif (is_object($value)) {
-                        echo __('Object of `%s` class', get_class($value));
-                    } else {
-                        echo esc($value);
-                    }
-                    ?>
-                </td>
-                <td><?=$row['created']?></td>
-                <td><?=$row['updated']?></td>
-                <td class="controls">
-                    <a href="<?=$this->url('options', 'crud', ['key' => $row['key'], 'namespace' => $row['namespace']]);?>"
-                       class="btn btn-primary" data-ajax-dialog data-ajax-method="get">
-                        <i class="fa fa-pencil"></i>
-                    </a>
-                    <a href="<?=$this->url('options', 'crud', ['key' => $row['key'], 'namespace' => $row['namespace']]);?>"
-                       class="btn btn-danger" data-confirm data-ajax data-ajax-method="delete">
-                        <i class="fa fa-trash-o"></i>
-                    </a>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-    <?=$this->partial('grid/empty-rows.phtml', ['grid'=>$grid]) ?>
-    <?=$this->partial('grid/pagination.phtml', ['grid'=>$grid]) ?>
-    <?=$this->partial('grid/total.phtml', ['grid'=>$grid]) ?>
+<div class="clearfix" data-spy="grid" data-grid="<?= $grid->getUid() ?>">
+  <script>
+    // use data-spy="grid" for use AJAX for reload grid
+    require(['bluz.grid']);
+  </script>
+  <nav class="navbar navbar-light bg-light">
+    <a href="<?= $this->url('options', 'crud') ?>" class="btn btn-primary navbar-btn"
+       data-ajax-dialog data-ajax-method="get"><?= __('Create') ?></a>
+  </nav>
+  <hr/>
+    <?= $this->partial('grid/total.phtml', ['grid' => $grid]) ?>
+    <?= $this->partial('grid/limit.phtml', ['grid' => $grid]) ?>
+  <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+      <th width="80px"><a href="<?= $grid->order('namespace') ?>"><?= __('Space') ?></a></th>
+      <th width="160px"><a href="<?= $grid->order('key') ?>"><?= __('Key') ?></a></th>
+      <th><a href="<?= $grid->order('value') ?>"><?= __('Value') ?></a></th>
+      <th width="180px"><a href="<?= $grid->order('created') ?>"><?= __('Created') ?></a></th>
+      <th width="180px"><a href="<?= $grid->order('updated') ?>"><?= __('Updated') ?></a></th>
+      <th width="120px"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($grid->getData() as $row) : ?>
+      <tr>
+        <td><span class="badge badge-info"><?= $row['namespace'] ?></span></td>
+        <td><span title="<?= esc($row['description']) ?>"><?= esc($row['key']) ?></span></td>
+        <td>
+            <?php
+            $value = unserialize($row['value'], ['allow_classes' => false]);
+            if (is_array($value)) {
+                echo __('Array (length=%d)', count($value));
+            } elseif (is_object($value)) {
+                echo __('Object of `%s` class', get_class($value));
+            } else {
+                echo esc($value);
+            }
+            ?>
+        </td>
+        <td><?= $row['created'] ?></td>
+        <td><?= $row['updated'] ?></td>
+        <td class="controls d-flex justify-content-around">
+          <a href="<?= $this->url('options', 'crud', ['key' => $row['key'], 'namespace' => $row['namespace']]); ?>"
+             class="btn btn-primary" data-ajax-dialog data-ajax-method="get">
+            <i class="fa fa-pencil"></i>
+          </a>
+          <a href="<?= $this->url('options', 'crud', ['key' => $row['key'], 'namespace' => $row['namespace']]); ?>"
+             class="btn btn-danger" data-confirm data-ajax data-ajax-method="delete">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </td>
+      </tr>
+    <?php endforeach; ?>
+    </tbody>
+  </table>
+    <?= $this->partial('grid/empty-rows.phtml', ['grid' => $grid]) ?>
+    <?= $this->partial('grid/pagination.phtml', ['grid' => $grid]) ?>
+    <?= $this->partial('grid/total.phtml', ['grid' => $grid]) ?>
 </div>

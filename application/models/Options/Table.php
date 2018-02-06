@@ -35,7 +35,7 @@ class Table extends \Bluz\Db\Table
      * Primary key(s)
      * @var array
      */
-    protected $primary = array('namespace', 'key');
+    protected $primary = ['namespace', 'key'];
 
     /**
      * Get option value for use it from any application place

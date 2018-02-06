@@ -11,8 +11,7 @@ namespace Application\Options;
 /**
  * Grid based on SQL
  *
- * @category Application
- * @package  Options
+ * @package Application\Options
  */
 class Grid extends \Bluz\Grid\Grid
 {
@@ -22,11 +21,9 @@ class Grid extends \Bluz\Grid\Grid
     protected $uid = 'options';
 
     /**
-     * init
-     *
-     * @return self
+     * {@inheritdoc}
      */
-    public function init()
+    public function init() : void
     {
         // Array
         $adapter = new \Bluz\Grid\Source\SqlSource();
@@ -35,7 +32,5 @@ class Grid extends \Bluz\Grid\Grid
         $this->setAdapter($adapter);
         $this->setDefaultLimit(25);
         $this->setAllowOrders(['id', 'key', 'namespace', 'value', 'created', 'deleted']);
-
-        return $this;
     }
 }
