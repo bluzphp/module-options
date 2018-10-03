@@ -18,41 +18,53 @@ use Bluz\Controller\Mapper\Rest;
 /**
  * Manipulate with options
  *
- * @SWG\Get(
+ * @OA\Get(
  *   path="/api/options/{optionNamespace}-{optionKey}",
  *   tags={"options"},
  *   operationId="getOptionByKey",
  *   summary="Find option by namespace and key",
- *   @SWG\Parameter(ref="#/parameters/Auth-Token"),
- *   @SWG\Parameter(
+ *   security={
+ *     {"api_key": {}}
+ *   },
+ *   @OA\Parameter(
  *     name="optionNamespace",
  *     in="path",
- *     type="string",
  *     required=true,
- *     description="Namespace of option"
+ *     description="Namespace of option",
+ *     @OA\Schema(type="string")
  *   ),
- *   @SWG\Parameter(
+ *   @OA\Parameter(
  *     name="optionKey",
  *     in="path",
- *     type="string",
  *     required=true,
- *     description="Key of option"
+ *     description="Key of option",
+ *     @OA\Schema(type="string")
  *   ),
- *   @SWG\Response(@SWG\Schema(ref="#/definitions/options"), response=200, description="Given option found"),
- *   @SWG\Response(@SWG\Schema(ref="#/definitions/error"), response=404, description="Page not found")
+ *   @OA\Response(@OA\JsonContent(ref="#/components/schemas/option"), response=200, description="Given option found"),
+ *   @OA\Response(@OA\JsonContent(ref="#/components/schemas/error"), response=404, description="User not found")
  * )
  *
- * @SWG\Get(
+ * @OA\Get(
  *   path="/api/options/",
  *   tags={"options"},
  *   method="GET",
  *   operationId="getOptionsCollection",
  *   summary="Collection of items",
- *   @SWG\Parameter(ref="#/parameters/Auth-Token"),
- *   @SWG\Parameter(ref="#/parameters/offset"),
- *   @SWG\Parameter(ref="#/parameters/limit"),
- *   @SWG\Response(response=200, description="Collection present"),
- *   @SWG\Response(response=206, description="Collection present")
+ *   security={
+ *     {"api_key": {}}
+ *   },
+ *   @OA\Parameter(ref="#/components/parameters/offset_in_query"),
+ *   @OA\Parameter(ref="#/components/parameters/limit_in_query"),
+ *   @OA\Response(
+ *     @OA\JsonContent(type="array", @OA\Items(ref="#/components/schemas/option")),
+ *     response=200,
+ *     description="Collection"
+ *   ),
+ *   @OA\Response(
+ *     @OA\JsonContent(type="array", @OA\Items(ref="#/components/schemas/option")),
+ *     response=206,
+ *     description="Collection (partial)"
+ *   )
  * )
  *
  * @accept JSON

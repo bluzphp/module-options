@@ -32,28 +32,27 @@ if (!$grid) {
     <tbody>
     <?php foreach ($grid->getData() as $row) : ?>
       <tr>
-        <td><span class="badge badge-info"><?= $row['namespace'] ?></span></td>
-        <td><span title="<?= esc($row['description']) ?>"><?= esc($row['key']) ?></span></td>
+        <td><span class="badge badge-info"><?= $row->namespace ?></span></td>
+        <td><span title="<?= esc($row->description) ?>"><?= esc($row->key) ?></span></td>
         <td>
             <?php
-            $value = unserialize($row['value'], ['allow_classes' => false]);
-            if (is_array($value)) {
-                echo __('Array (length=%d)', count($value));
-            } elseif (is_object($value)) {
-                echo __('Object of `%s` class', get_class($value));
-            } else {
-                echo esc($value);
-            }
+                if (is_array($row->value)) {
+                    echo __('Array (length=%d)', count($row->value));
+                } elseif (is_object($row->value)) {
+                    echo __('Object of `%s` class', get_class($row->value));
+                } else {
+                    echo esc($row->value);
+                }
             ?>
         </td>
-        <td><?= $row['created'] ?></td>
-        <td><?= $row['updated'] ?></td>
+        <td><?= $row->created ?></td>
+        <td><?= $row->updated ?></td>
         <td class="controls d-flex justify-content-around">
-          <a href="<?= $this->url('options', 'crud', ['key' => $row['key'], 'namespace' => $row['namespace']]); ?>"
+          <a href="<?= $this->url('options', 'crud', ['key' => $row->key, 'namespace' => $row->namespace]); ?>"
              class="btn btn-primary" data-ajax-dialog data-ajax-method="get">
             <i class="fa fa-pencil"></i>
           </a>
-          <a href="<?= $this->url('options', 'crud', ['key' => $row['key'], 'namespace' => $row['namespace']]); ?>"
+          <a href="<?= $this->url('options', 'crud', ['key' => $row->key, 'namespace' => $row->namespace]); ?>"
              class="btn btn-danger" data-confirm data-ajax data-ajax-method="delete">
             <i class="fa fa-trash-o"></i>
           </a>
