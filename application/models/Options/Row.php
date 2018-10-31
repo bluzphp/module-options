@@ -25,15 +25,15 @@ use Application\Users;
  * @property string $created
  * @property string $updated
  *
- * @SWG\Definition(definition="options", title="option", required={"namespace", "key"})
- * @SWG\Property(property="namespace", type="string", description="Options namespace", example="default")
- * @SWG\Property(property="key", type="string", description="Key", example="Some key")
- * @SWG\Property(property="userId", type="integer", description="Author ID", example=2)
- * @SWG\Property(property="value", type="string", description="Value", example="Some Value")
- * @SWG\Property(property="description", type="string", description="Description", example="Some description for key")
- * @SWG\Property(property="created", type="string", format="date-time", description="Created date",
+ * @OA\Schema(schema="option", title="option", required={"namespace", "key"})
+ * @OA\Property(property="namespace", type="string", description="Options namespace", example="default")
+ * @OA\Property(property="key", type="string", description="Key", example="Some key")
+ * @OA\Property(property="userId", type="integer", description="Author ID", example=2)
+ * @OA\Property(property="value", type="string", description="Value", example="Some Value")
+ * @OA\Property(property="description", type="string", description="Description", example="Some description for key")
+ * @OA\Property(property="created", type="string", format="date-time", description="Created date",
  *     example="2017-03-17 19:06:28")
- * @SWG\Property(property="updated", type="string", format="date-time", description="Last updated date",
+ * @OA\Property(property="updated", type="string", format="date-time", description="Last updated date",
  *     example="2017-03-17 19:06:28")
  */
 class Row extends \Bluz\Db\Row

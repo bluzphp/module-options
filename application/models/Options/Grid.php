@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Application\Options;
 
+use Bluz\Grid\Source\SelectSource;
+
 /**
  * Grid based on SQL
  *
@@ -26,8 +28,8 @@ class Grid extends \Bluz\Grid\Grid
     public function init() : void
     {
         // Array
-        $adapter = new \Bluz\Grid\Source\SqlSource();
-        $adapter->setSource('SELECT * FROM options');
+        $adapter = new SelectSource();
+        $adapter->setSource(Table::select());
 
         $this->setAdapter($adapter);
         $this->setDefaultLimit(25);
