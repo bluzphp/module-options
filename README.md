@@ -1,8 +1,6 @@
 # Module options for Bluz Skeleton
 ## Achievements
 
-[![PHP >= 7.1+](https://img.shields.io/packagist/php-v/bluzphp/module-options.svg?style=flat)](https://php.net/)
-
 [![Latest Stable Version](https://img.shields.io/packagist/v/bluzphp/module-options.svg?label=version&style=flat)](https://packagist.org/packages/bluzphp/module-options)
 
 [![Build Status](https://img.shields.io/travis/bluzphp/module-options/master.svg?style=flat)](https://travis-ci.org/bluzphp/module-options)
