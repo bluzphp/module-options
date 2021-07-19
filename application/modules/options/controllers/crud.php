@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CRUD for options
  */
@@ -28,6 +29,6 @@ return function () {
     $crud->post('options', 'crud/post')->fields(['namespace', 'key', 'value', 'description']);
     $crud->put('system', 'crud/put')->fields(['value', 'description']);
     $crud->delete('system', 'crud/delete');
-    
+
     return $crud->run();
 };

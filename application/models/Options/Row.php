@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @copyright Bluz PHP Team
  * @link https://github.com/bluzphp/skeleton
@@ -43,7 +44,7 @@ class Row extends \Bluz\Db\Row
     /**
      * {@inheritdoc}
      */
-    protected function afterRead() : void
+    protected function afterRead(): void
     {
         if ($this->value) {
             $this->value = unserialize($this->value, ['allowed_classes' => false]);
@@ -53,7 +54,7 @@ class Row extends \Bluz\Db\Row
     /**
      * {@inheritdoc}
      */
-    protected function beforeSave() : void
+    protected function beforeSave(): void
     {
         $this->value = serialize($this->value);
 
@@ -68,7 +69,7 @@ class Row extends \Bluz\Db\Row
     /**
      * {@inheritdoc}
      */
-    protected function beforeInsert() : void
+    protected function beforeInsert(): void
     {
         // unique validator
         $this->addValidator('key')
@@ -90,7 +91,7 @@ class Row extends \Bluz\Db\Row
     /**
      * {@inheritdoc}
      */
-    protected function beforeUpdate() : void
+    protected function beforeUpdate(): void
     {
         $this->updated = gmdate('Y-m-d H:i:s');
     }

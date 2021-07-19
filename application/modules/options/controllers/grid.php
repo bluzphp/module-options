@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Grid of Options
  */
@@ -28,6 +29,6 @@ return function () {
     );
     $grid = new Options\Grid();
     $grid->processSource();
-    
+
     $this->assign('grid', $grid);
 };

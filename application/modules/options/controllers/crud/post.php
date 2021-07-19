@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CRUD controller for POST method
  *
@@ -7,6 +8,7 @@
  * @author   Anton Shevchuk
  * @created  19.02.15 16:27
  */
+
 namespace Application;
 
 use Bluz\Http\RequestMethod;
@@ -29,7 +31,7 @@ return function ($crud, $primary, $data) {
         $crud->createOne($data);
 
         Messages::addSuccess('The record was successfully created');
-        
+
         return [
             'row'    => $data,
             'method' => RequestMethod::PUT
