@@ -80,7 +80,7 @@ class Row extends \Bluz\Db\Row
                 'Key name is already exists'
             );
 
-        /* @var \Application\Users\Row $user */
+        /* @var Users\Row $user */
         if ($user = Auth::getIdentity()) {
             $this->userId = $user->getId();
         } else {

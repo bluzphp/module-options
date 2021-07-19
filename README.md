@@ -16,13 +16,13 @@
 To install the module run the command:
   
 ```bash
-php /vendor/bin/bluzman module:install options
-php /vendor/bin/bluzman db:migrate
+php ./vendor/bin/bluzman module:install options
+php ./vendor/bin/bluzman db:migrate
 ```
 
 ### Remove module
 To remove the module, run the command:
     
 ```bash
-php /vendor/bin/bluzman module:remove options
+php ./vendor/bin/bluzman module:remove options
 ```
