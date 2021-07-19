@@ -32,7 +32,7 @@ if (!$grid) {
     <tbody>
     <?php foreach ($grid->getData() as $row) : ?>
       <tr>
-        <td><span class="badge badge-info"><?= $row->namespace ?></span></td>
+        <td><span class="badge bg-info"><?= $row->namespace ?></span></td>
         <td><span title="<?= esc($row->description) ?>"><?= esc($row->key) ?></span></td>
         <td>
             <?php
@@ -50,11 +50,11 @@ if (!$grid) {
         <td class="controls d-flex justify-content-around">
           <a href="<?= $this->url('options', 'crud', ['key' => $row->key, 'namespace' => $row->namespace]); ?>"
              class="btn btn-primary" data-ajax-dialog data-ajax-method="get">
-            <i class="fa fa-pencil"></i>
+              <i class="bi bi-pencil"></i>
           </a>
           <a href="<?= $this->url('options', 'crud', ['key' => $row->key, 'namespace' => $row->namespace]); ?>"
              class="btn btn-danger" data-confirm data-ajax data-ajax-method="delete">
-            <i class="fa fa-trash-o"></i>
+              <i class="bi bi-trash"></i>
           </a>
         </td>
       </tr>
