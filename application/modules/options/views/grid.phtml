@@ -32,7 +32,7 @@ if (!$grid) {
     <tbody>
     <?php foreach ($grid->getData() as $row) : ?>
       <tr>
-        <td><span class="badge badge-info"><?= $row->namespace ?></span></td>
+        <td><span class="badge bg-info"><?= $row->namespace ?></span></td>
         <td><span title="<?= esc($row->description) ?>"><?= esc($row->key) ?></span></td>
         <td>
             <?php
