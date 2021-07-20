@@ -3,7 +3,7 @@
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/bluzphp/module-options.svg?label=version&style=flat)](https://packagist.org/packages/bluzphp/module-options)
 
-[![Build Status](https://img.shields.io/travis/bluzphp/module-options/master.svg?style=flat)](https://travis-ci.org/bluzphp/module-options)
+[![Build Status](https://img.shields.io/travis/bluzphp/module-options/master.svg?style=flat)](https://travis-ci.com/bluzphp/module-options)
 
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/bluzphp/module-options.svg?style=flat)](https://scrutinizer-ci.com/g/bluzphp/module-options/)
 
