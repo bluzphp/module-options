@@ -9,14 +9,18 @@ declare(strict_types=1);
 
 namespace Application\Options;
 
+use Bluz\Db\Exception\DbException;
+use Bluz\Db\Exception\InvalidPrimaryKeyException;
+use Bluz\Db\Exception\TableNotFoundException;
+
 /**
  * Class Table
  *
  * @package Application\Options
  *
  * @method static Row create(array $data = [])
- * @method static Row findRow($primaryKey)
- * @method static Row findRowWhere($whereList)
+ * @method static Row|null findRow($primaryKey)
+ * @method static Row|null findRowWhere($whereList)
  */
 class Table extends \Bluz\Db\Table
 {
@@ -44,6 +48,7 @@ class Table extends \Bluz\Db\Table
      * @param string $key
      * @param string $namespace
      * @return mixed
+     * @throws DbException
      */
     public static function get(string $key, string $namespace = self::NAMESPACE_DEFAULT)
     {
@@ -60,6 +65,9 @@ class Table extends \Bluz\Db\Table
      * @param mixed $value
      * @param string $namespace
      * @return mixed
+     * @throws DbException
+     * @throws InvalidPrimaryKeyException
+     * @throws TableNotFoundException
      */
     public static function set(string $key, $value, string $namespace = self::NAMESPACE_DEFAULT)
     {
@@ -79,6 +87,7 @@ class Table extends \Bluz\Db\Table
      * @param string $key
      * @param string $namespace
      * @return integer
+     * @throws DbException
      */
     public static function remove(string $key, string $namespace = self::NAMESPACE_DEFAULT)
     {

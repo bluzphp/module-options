@@ -11,6 +11,7 @@
 namespace Application\Tests\Options;
 
 use Application\Tests\ControllerTestCase;
+use Bluz\Application\Exception\ApplicationException;
 use Bluz\Http\RequestMethod;
 use Bluz\Http\StatusCode;
 
@@ -28,6 +29,7 @@ class CrudTest extends ControllerTestCase
      * setUp
      *
      * @return void
+     * @throws ApplicationException
      */
     public function setUp(): void
     {
