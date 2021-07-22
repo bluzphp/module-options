@@ -1,4 +1,4 @@
-# Module options for Bluz Skeleton
+# Module Options for Bluz Skeleton
 ## Achievements
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/bluzphp/module-options.svg?label=version&style=flat)](https://packagist.org/packages/bluzphp/module-options)
