@@ -38,5 +38,7 @@ class OptionsPermissions extends AbstractMigration
     public function down()
     {
         $this->execute('DELETE FROM acl_privileges WHERE module = "options"');
+        $this->execute('DELETE FROM acl_privileges WHERE module = "api" AND privilege = "Options/Read"');
+        $this->execute('DELETE FROM acl_privileges WHERE module = "api" AND privilege = "Options/Edit"');
     }
 }
